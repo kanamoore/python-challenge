@@ -4,6 +4,7 @@ import csv
 pypoll_file = os.path.join("election_data.csv")
 total_vote = 0
 candidate_list = []
+vote_count = 0
 
 found = True
 
@@ -15,22 +16,17 @@ with open(pypoll_file,"r",newline="") as csvfile:
         #The total number of votes cast
         total_vote = total_vote + 1
         
-        # A complete list of candidates who received votes
-        if not row[2] in candidate_list:
-            candidate_list.append(row[2])
+        # Set row[2] as candidate name
+        candidate_name = row[2]
 
-        # For each candidate, count the number of votes
-    for candidate in candidate_list:
-        candidate_voted = 0
-    
-        for record in csvreader:
-            if candidate == row[2]:
-                candidate_voted = candidate_voted + 1
-        
-        
-        # The total number of votes each candidate won
-        #if candidates_voted[0] == row[2]:
-        #    candidate1_total = candidate1_total + 1
+        # A complete list of candidates who received votes
+        if not candidate_name in candidate_list:
+            candidate_list.append(candidate_name)
+
+        #The total number of votes each candidate won
+        for candidate in candidate_list:
+            if candidate_list[0] == candidate_name:
+                vote_count = vote_count + 1
 
 
         
@@ -43,7 +39,7 @@ with open(pypoll_file,"r",newline="") as csvfile:
 
 print(total_vote)
 print(candidate_list)
-print(candidate, candidate_voted)
+print(candidate_name, vote_count)
 
 """
 * As an example, your analysis should look similar to the one below:
