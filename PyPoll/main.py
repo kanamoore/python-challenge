@@ -7,14 +7,18 @@ pypoll_file = os.path.join("Resources","election_data.csv")
 total_vote = 0
 candidate_votes = {}
 candidate_list = []
+votes_count = []
 percentage_voted_list = []
 winner = ""
 winner_votes_count = 0
+cleaned_output = []
 
+# Read csv file
 with open(pypoll_file,"r",newline="") as csvfile:
     csvreader = csv.reader(csvfile,delimiter= ",")
     file_header = next(csvreader)
 
+    # Loop through each row in csv file
     for row in csvreader:
         # Count toal number of votes (count rows without header)
         total_vote = total_vote + 1
@@ -32,61 +36,48 @@ with open(pypoll_file,"r",newline="") as csvfile:
             candidate_votes[candidate_name] = 1
 
         # Loop through each candidate in vote summary and get he percentage of votes each candidate won
-        for candidate in candidate_votes:
-            #if candidate not in percentage_voted_list:
-            votes = candidate_votes[candidate_name]
-            #    percentage_voted = round((int(votes)/ total_vote * 100),2)
-            #    percentage_voted_list.append(percentage_voted)
+    for key, value in candidate_votes.items():
+        votes_count.append(value)
+        votes = candidate_votes[candidate_name]
+        percentage_voted = round((int(value)/ total_vote * 100),2)
+        percentage_voted_list.append(percentage_voted)
 
         # Determine the winner by comparing votes count for each candidate
-            if (votes > winner_votes_count):
-                winner_votes_count = votes
-                winner= candidate
+        if (value > winner_votes_count):
+            winner_votes_count = value
+            winner= key
     
-        # Ideal format is vote_summary = {"name" : ["vote_percentage", "vote_count"]
+    # Combine 3 lists as 1 list to print
+    cleaned_output = zip(candidate_list,percentage_voted_list, votes_count)
+    cleaned_output = list(cleaned_output)
 
     # Show the result in terminal
-    print(len(percentage_voted_list))
     print("Election Results")
     print("-------------------------")
     print(f'Total Votes :  {total_vote}')
     print("-------------------------")
-    for key in list(candidate_votes.keys()):
-        print(f'{key} : ({candidate_votes[key]})')
+    for item in cleaned_output:
+        print(f'{item[0]} : {item[1]}00% ({item[2]})')
     print("-------------------------")
     print(f'Winner : {winner}')
     print("-------------------------")
 
-    # Export the result as csv file
+# Create an output file
+output_file = os.path.join("pybank_ result.csv")
+with open(output_file,"w",newline="") as datafile:
+    writer = csv.writer(datafile)
+
+# Export the result as csv file
 output_file = os.path.join("pypoll_result.csv")
 with open(output_file,"w",newline="") as datafile:
     csvwriter = csv.writer(datafile)
 
-    csvwriter.writerow("Election Results")
-    csvwriter.writerow("-------------------------")
-    csvwriter.writerow(f'Total Votes :  {total_vote}')
-    csvwriter.writerow("-------------------------")
-    for key in list(candidate_votes.keys()):
-        csvwriter.writerow(f'{key} : ({candidate_votes[key]})')
-    csvwriter.writerow("-------------------------")
-    csvwriter.writerow(f'Winner : {winner}')
-    csvwriter.writerow("-------------------------")
-
-    
-"""
-* As an example, your analysis should look similar to the one below:
-
-  ```text
-  Election Results
-  -------------------------
-  Total Votes: 3521001
-  -------------------------
-  Khan: 63.000% (2218231)
-  Correy: 20.000% (704200)
-  Li: 14.000% (492940)
-  O'Tooley: 3.000% (105630)
-  -------------------------
-  Winner: Khan
-  -------------------------
-
-"""
+    csvwriter.writerow(["Election Results"])
+    csvwriter.writerow(["-------------------------"])
+    csvwriter.writerow([f'Total Votes :  {total_vote}'])
+    csvwriter.writerow(["-------------------------"])
+    for item in cleaned_output:
+        csvwriter.writerow([f'{item[0]} : {item[1]}00% ({item[2]})'])
+    csvwriter.writerow(["-------------------------"])
+    csvwriter.writerow([f'Winner : {winner}'])
+    csvwriter.writerow(["-------------------------"])
