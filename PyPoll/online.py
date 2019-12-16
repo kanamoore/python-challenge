@@ -19,14 +19,12 @@ with open(pypoll_file,"r",newline="") as csvfile:
 		total_vote = total_vote + 1
 		
 		#Set row[2] as candidate name for readability
-		candidate_name = row[2] 
-		vote_percantage = 0.00
+		candidate_name = row[2]
 
 		# Check if the candidate_name is already in dictionary
 		if candidate_name in vote_summary: 
 			# Increment count of candidate_name by 1 
 			vote_summary[candidate_name] = vote_summary[candidate_name] + 1
-			vote_summary[vote_percantage] = vote_summary[candidate_name] / total_vote
 			
 		else: 
 			# Add the candidate_name to dictionary with count 1 
