@@ -18,7 +18,7 @@ I created a Python script that analyzes the records to calculate each of the fol
 * The greatest decrease in losses (date and amount) over the entire period
 
 This is the result after running the script.
-
+```
 Financial Analysis
 ----------------------------
 Total Months: 86
@@ -26,7 +26,7 @@ Total: $38382578
 Average  Change: $-2315.12
 Greatest Increase in Profits: Feb-2012 ($1926159)
 Greatest Decrease in Profits: Sep-2013 ($-2196167)
-
+```
 
 ## PyPoll
 Vote-Counting
@@ -46,7 +46,7 @@ I was given a set of poll data called election_data.csv. The dataset is composed
 * The winner of the election based on popular vote.
 
 This is the result after running a script.
-
+```
 Election Results
 -------------------------
 Total Votes: 3521001
@@ -58,3 +58,4 @@ O'Tooley: 3.000% (105630)
 -------------------------
 Winner: Khan
 -------------------------
+```
