@@ -31,21 +31,21 @@ Greatest Decrease in Profits: Sep-2013 ($-2196167)
 ## PyPoll
 Vote-Counting
 
-In this challenge, you are tasked with helping a small, rural town modernize its vote-counting process. (Up until now, Uncle Cleetus had been trustfully tallying them one-by-one, but unfortunately, his concentration isn't what it used to be.)
+In this challenge, my task is to help a small, rural town modernize its vote-counting process. 
 
-You will be give a set of poll data called election_data.csv. The dataset is composed of three columns: Voter ID, County, and Candidate. Your task is to create a Python script that analyzes the votes and calculates each of the following:
+I was given a set of poll data called election_data.csv. The dataset is composed of three columns: Voter ID, County, and Candidate. My task is to create a Python script that analyzes the votes and calculates each of the following:
 
-The total number of votes cast
+* The total number of votes cast
 
-A complete list of candidates who received votes
+* A complete list of candidates who received votes
 
-The percentage of votes each candidate won
+* The percentage of votes each candidate won
 
-The total number of votes each candidate won
+* The total number of votes each candidate won
 
-The winner of the election based on popular vote.
+* The winner of the election based on popular vote.
 
-As an example, your analysis should look similar to the one below:
+This is the result after running a script.
 
 Election Results
 -------------------------
