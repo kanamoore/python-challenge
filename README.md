@@ -28,6 +28,8 @@ Greatest Increase in Profits: Feb-2012 ($1926159)
 Greatest Decrease in Profits: Sep-2013 ($-2196167)
 ```
 
+Python script is saved here (Pybank/main.py) : https://github.com/kanamoore/python-challenge/blob/master/PyBank/main.py
+
 ## PyPoll
 Vote-Counting
 
@@ -59,3 +61,4 @@ O'Tooley: 3.000% (105630)
 Winner: Khan
 -------------------------
 ```
+Python script is saved here (PyPoll/main.py) : https://github.com/kanamoore/python-challenge/blob/master/PyPoll/main.py
