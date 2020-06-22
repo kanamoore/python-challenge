@@ -1,4 +1,4 @@
-# python-challenge
+# Python-challenge
 This project analyzed financial record of sample company called PyBank and vote-counting using Python.
 
 ## PyBank
@@ -9,7 +9,7 @@ I created a Python script that analyzes the records to calculate each of the fol
 
 * The total number of months included in the dataset
 
-* The net total amount of "Profit/Losses" over the en*tire period
+* The net total amount of "Profit/Losses" over the entire period
 
 * The average of the changes in "Profit/Losses" over the entire period
 
